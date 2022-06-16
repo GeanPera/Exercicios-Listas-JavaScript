@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Area Circulo</legend>
+                <label for="idCirculo">Raio do circulo:</label><br>
+                <input type="text" name="nmCirculo" id="idCirculo">
+
+                <br><br>
+                <input type="button" value="Calcular" onclick="calcularCirculo()">
+
+                <br><br>
+                <label for="idResulCirculo">Resultado:</label><br>
+                <input type="text" name="nmResulCirculo" id="idResulCirculo">
+
+        </fieldset>
+
+        <script>
+                function calcularCirculo() {
+                  var raio = Number(document.getElementById("idCirculo").value)
+                  var pi = Number(3.14)    
+                  var resultado = pi * (raio * raio)
+      
+                  document.getElementById("idResulCirculo").value = resultado
+      
+                }
+              
+        </script>
+         
+        <fieldset>
+            <legend>Area Retangulo</legend>
+
+                <label for="idLado01">1° lado:</label><br>
+                <input type="text" name="nmLado01" id="idLado01">
+
+                <br><br>
+                <label for="idLado02">2° lado:</label><br>
+                <input type="text" name="nmLado02" id="idLado02">
+
+                <br><br>
+                <input type="button" value="Calcular" onclick="calcularRetangulo()">
+
+                <br><br>
+                <label for="idResulRetangulo">Resultado:</label><br>
+                <input type="text" name="nmResulRetangulo" id="idResulRetangulo">
+        </fieldset>
+
+        <script>
+            function calcularRetangulo() {
+                var lado1 = Number(document.getElementById("idLado01").value)
+                var lado2 = Number(document.getElementById("idLado02").value)
+                var resultado = lado1 * lado2
+                document.getElementById("idResulRetangulo").value = resultado
+            }
+        </script>
+
+        <fieldset>
+             <legend>Area Triangulo Retangulo:</legend>
+
+                <label for="idBaseRe">Base do tringulo:</label><br>
+                <input type="text" name="nmBaseRe" id="idBaseRe">
+
+                <br><br>
+                <label for="idAlturaRe">Altura do triangulo:</label><br>
+                <input type="text" name="nmAlturaRe" id="idAlturaRe">
+
+                <br><br>
+                <input type="button" value="Calcular" onclick="calcularTrianguloRetangulo()">
+
+                <br><br>
+                <label for="idResulTriRetangulo">Resultado:</label><br>
+                <input type="text" name="nmResulTriRetangulo" id="idResulTriRetangulo">
+        </fieldset>
+
+        <script>
+            function calcularTrianguloRetangulo() {
+                var base = Number(document.getElementById("idBaseRe").value)
+                var altura = Number( document.getElementById("idAlturaRe").value)
+                var resultado = (base * altura) / 2
+                document.getElementById("idResulTriRetangulo").value = resultado
+            }
+        </script>
+
+        <fieldset>
+            <legend>Area Triangulo Equilatero:</legend>
+       
+                <label for="idBaseEq">Base do tringulo:</label><br>
+                <input type="text" name="nmBaseEq" id="idBaseEq">
+       
+                <br><br>
+                <label for="idAlturaEq">Altura do triangulo:</label><br>
+                <input type="text" name="nmAlturaEq" id="idAlturaEq">
+       
+                <br><br>
+                <input type="button" value="Calcular" onclick="calcularTrianguloEquilatero()">
+
+                <br><br>
+                <label for="idResulTriEqui">Resultado:</label><br>
+                <input type="text" name="nmResulTriEqui" id="idResulTriEqui">
+            </fieldset>
+             <script>
+                 function calcularTrianguloEquilatero() {
+                     var base = Number(document.getElementById("idBaseEq").value)
+                     var altura = Number(document.getElementById("idAlturaEq").value)
+
+                     var resultado = ((base * altura) / 2 ) * 2
+
+                     document.getElementById("idResulTriEqui").value = resultado
+                 }
+             </script>
+        
+    </body>
+</html>

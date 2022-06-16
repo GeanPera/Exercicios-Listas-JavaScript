@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP2L5</title>
+    </head>
+    <body>
+        <form action=""></form>
+            <label for="idComeco">Primeiro numero</label>
+            <input type="number" name="nmComeco" id="idComeco">
+
+            <br><br>
+            <label for="idFinal">Ultimo numero</label>
+            <input type="number" name="nmFinal" id="idFinal">
+            <br><br>
+
+            <input type="button" value="Verificar" onclick="verificarPrimos()">
+
+            <br><br>
+            <output id="idOut"></output>
+        </form>
+        <script>
+            var out = document.getElementById("idOut")
+            function verificarPrimos() {
+                let num1 = Number(document.getElementById("idComeco").value)
+                let num2 = Number(document.getElementById("idFinal").value)
+                let contNum = num1
+                
+                let naoPrimo = ""
+                let primo = ""
+                num2++
+                while ( contNum < num2 ) {
+                    if ((contNum % 2) == 0 || (contNum % 3) == 0 
+                    || (contNum % 5) == 0 || (contNum % 7) == 0 
+                    || (contNum % 11) == 0){
+                        naoPrimo = naoPrimo + contNum + ", "
+                        contNum++
+                    } else {
+                        primo = primo + contNum + ", "
+                        contNum++
+                    }   
+                }
+                if (num1 <= 2) {
+                    out.value = "Os numeros são: 2, 3, 5, 7, 11, " + primo
+                } else if (num1 <= 3){
+                    out.value = "Os numeros são: 3, 5, 7, 11, " + primo
+                } else if (num1 <= 5){
+                    out.value = "Os numeros são: 5, 7, 11, " + primo
+                } else if (num1 <= 7){
+                    out.value = "Os numeros são: 7, 11, " + primo
+                } else if (num1 <= 11){
+                    out.value = "Os numeros são: 11, " + primo
+                } else {
+                    out.value = primo
+                }
+                
+                
+            }
+        </script>
+
+    </body>
+</html>

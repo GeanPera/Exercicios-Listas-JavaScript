@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP5L2</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+                <div>
+                    <label for="idNum">Numero</label><br>
+                    <input type="number" name="nmNum" id="idNum"> 
+
+                    <br><br>           
+                    <output id="idOut"></output>  
+
+                    <br><br>               
+                   <input type="button" value="Verificar" onclick="verificarNum()"> 
+                </div>
+            </form>
+        </section>
+        <section>
+            <script>         
+                function verificarNum() {
+                    var num = Number(document.getElementById("idNum").value)        
+                    if ((num % 2) == 0 ) {
+
+                        document.getElementById("idOut").value = "O número é par"
+
+                    } else {
+                        document.getElementById("idOut").value = "O número é ímpar"
+                        }
+                }
+            </script>
+        </section>
+    </body>
+</html>

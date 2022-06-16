@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP3L7</title>
+
+        <style>
+            div{
+                display: block;
+                margin: 10px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <!-- Faça um algoritmo que leia o nome, o sexo e o salário de 5 funcionários
+             e guarde esses dados em três vetores.
+             No final, mostre uma listagem contendo apenas os dados das funcionárias mulheres
+             que ganham mais de R$5 mil. -->
+
+        <form action="">
+            <div>
+                <input type="text" id="idNome" placeholder="Nome...">
+            </div>
+
+            <div>
+                <select name="nmSexo" id="idSexo">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+            </div>
+            
+            <div>
+                <input type="number" id="idSalario" placeholder="Salario R$...">
+            </div>
+
+            <div>
+                <input type="button" value="Enviar" onclick="enviarDados()">
+                <input type="button" value="Relatório" onclick="relatorio()">
+            </div>
+
+            <div>
+                <output id="idOut"></output>
+            </div>
+        </form>
+        <script>
+            var nomesEnviados = []
+            var sexosEnviados = []
+            var salariosEnviados =  []
+
+            var out = document.getElementById("idOut")
+
+            function enviarDados() {
+                let nome = document.getElementById("idNome").value
+                let sexo = document.getElementById("idSexo").value
+                let salario = document.getElementById("idSalario").value
+
+                nomesEnviados.push(nome)
+                sexosEnviados.push(sexo)
+                salariosEnviados.push(salario)
+
+                document.getElementById("idNome").value = ""
+                document.getElementById("idSexo").value = ""
+                document.getElementById("idSalario").value = ""
+            }
+
+            var nomeMulheres = []
+            var sexoFeminino = []
+            var salarioMulheres = []
+
+            function relatorio() {
+                
+                //  O relatória separa as mulheres que ganham mais de R$ 5k
+                
+                console.table(nomesEnviados)
+                console.table(sexosEnviados)
+                console.table(salariosEnviados)
+
+                for (var i = 0; i < sexosEnviados.length; i++) {
+                    if (sexosEnviados[i] == "Feminino" && salariosEnviados[i] > 5000) {
+                        nomeMulheres.push(nomesEnviados[i])
+                        sexoFeminino.push(sexosEnviados[i])
+                        salarioMulheres.push(salariosEnviados[i])
+                    }  
+                }
+                console.table(nomeMulheres)
+                console.table(sexoFeminino)
+                console.table(salarioMulheres)
+                // resultado é os nomes e salarios organizados
+                let resultado = ""
+                for (var i = 0; i < nomeMulheres.length; i++) {
+                    
+                    resultado = resultado + "" + nomeMulheres[i] + " R$ = " + salarioMulheres[i] + ", "
+                }
+
+                out.value = "Mulheres que ganham mais de 5k: " + resultado
+
+            }
+        </script>
+    </body>
+</html>

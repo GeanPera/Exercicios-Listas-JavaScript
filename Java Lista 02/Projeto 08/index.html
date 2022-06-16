@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP8L2</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+                <div>
+                    <label for="idAno">Ano</label><br>
+                    <input type="number" name="nmAno" id="idAno"> 
+
+                    <br><br>           
+                    <output id="idOut"></output>  
+
+                    <br><br>               
+                   <input type="button" value="Verificar" onclick="verificarAno()"> 
+                </div>
+            </form>
+        </section>
+        <section>
+            <script>         
+                function verificarAno() {
+                    var ano = Number(document.getElementById("idAno").value)        
+                    if ((ano % 4 == 0 && ano % 100 != 0) || ano % 400 == 0) {
+                    
+                        document.getElementById("idOut").value = "O ano é bissexto"
+
+                    } else {
+                        document.getElementById("idOut").value = "O ano não é bissexto"
+                        }
+                }
+            </script>
+        </section>
+    </body>
+</html>

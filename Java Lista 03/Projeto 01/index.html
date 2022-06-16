@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP1L3</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+                <div>
+                    <label for="idNum01">1° número</label><br>
+                    <input type="number" name="nmNum01" id="idNum01">
+            
+                    <br><br>
+                    <label for="idNum02">2° número</label><br>
+                    <input type="number" name="nmNum02" id="idNum02">
+            
+                    <br><br>
+                    <output id="idResul"></output>
+            
+                    <br><br>
+                    <input type="button" value="Verificar" onclick="verificarNum()">
+                    
+                    <br><br>
+                    <output id="idResul"></output>
+                </div>
+            </form>
+        </section>
+        <section>
+            <script>
+            function verificarNum() {
+                var num1 = Number(document.getElementById("idNum01").value)
+                var num2 = Number(document.getElementById("idNum02").value)
+
+                if (num1 > num2) {
+                    document.getElementById("idResul").value = "O número " + num1 +" é maior que" + num2
+                } else {
+                    document.getElementById("idResul").value  = "O número " + num1 + " é menor que " + num2
+                }
+            }
+            </script>
+        </section>
+        
+
+
+
+    </body>
+</html>

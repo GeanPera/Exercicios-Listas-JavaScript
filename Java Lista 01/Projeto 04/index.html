@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>IMC</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idPeso">Peso:</label><br>
+            <input type="text" name="nmPeso" id="idPeso">
+
+            <br><br>
+            <label for="idAltura">Altura:</label><br>
+            <input type="text" name="nmAltura" id="idAltura">
+        
+            <br><br>
+            <input type="button" value="Calcular" onclick="calcular()">
+
+            <br><br>
+            <label for="idResultadoNum">Resultado:</label><br>
+            <input type="text" name="nmResultadoNum" id="idResultadoNum"><br>
+            <p id="idResultadoText"></p>
+        </form>
+        <script>
+            var peso
+            var altura 
+
+            function calcular() {
+                peso = Number(document.getElementById("idPeso").value)
+                altura = Number(document.getElementById("idAltura").value)
+
+                var resultado = peso / (altura * altura)
+
+                document.getElementById("idResultadoNum").value = resultado.toFixed(2) + " Kg/m²"
+
+                if (resultado  >= 16 && resultado <= 16.9) {
+                    document.getElementById("idResultadoText").innerText = "Muito abaixo do peso"
+                }
+                if (resultado  > 16.9 && resultado <= 18.4) {
+                    document.getElementById("idResultadoText").innerText = "Abaixo do peso"
+                }
+                if (resultado  > 18.4 && resultado <= 24.9) {
+                    document.getElementById("idResultadoText").innerText = "Peso normal"
+                }
+                if (resultado  > 24.9 && resultado <= 29.9) {
+                    document.getElementById("idResultadoText").innerText = "Acima do peso"
+                }
+                if (resultado  > 29.9 && resultado <= 34.9) {
+                    document.getElementById("idResultadoText").innerText = "Obesidade grau I"
+                }
+                if (resultado  > 34.9 && resultado <= 40) {
+                    document.getElementById("idResultadoText").innerText = "Obesidade grau II"
+                }
+                if (resultado  >40) {
+                    document.getElementById("idResultadoText").innerText = "Obesidade grau III"
+                }
+            }
+        </script>
+
+
+
+
+    </body>
+</html>

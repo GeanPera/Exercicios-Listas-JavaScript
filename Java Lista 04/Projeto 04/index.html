@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP4L4</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+                <h1>For</h1>
+                <output id="idOutFor"></output>
+
+                <br>
+                <h1>While</h1>
+                <output id="idOutWhile"></output>
+
+                <br><br><br>
+                <input type="button" value="Contar For" onclick="contarFor()">
+                <input type="button" value="Contar While" onclick="contarWhile()">
+            </form>
+
+        </section>
+        <section>
+            <script>
+                
+                function contarFor() {
+                    let outFor = document.getElementById("idOutFor")
+                    let contadorFor = ""
+
+                    for (var index =100; index > -1; index = index -5) {
+                        contadorFor  = contadorFor + index + ", "
+                    }
+                    outFor.value = "Inicio " + contadorFor + " Acabou!"
+                }
+                function contarWhile() {
+                    let contador = 100
+                    let contadorWhile = ""
+                    let outWhile = document.getElementById("idOutWhile")
+                    
+                    while ( contador > -1 ) {
+                        contadorWhile = contadorWhile + contador + ", "
+                        contador = contador -5
+                    }
+                    outWhile.value = "Inicio " + contadorWhile + " Acabou!"
+                }
+            </script>
+        </section>
+    </body>
+</html>

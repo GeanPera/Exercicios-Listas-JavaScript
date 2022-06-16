@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Java P4L7
+        </title>
+
+        <style>
+            div{
+                margin: 15px;
+                display: block;
+            }
+            .clOut1{
+                border: 1px solid;
+                height: 20px;
+                width: 150px;
+                
+            }
+            .clOut2{
+                border: 1px solid;
+                height: 55px;
+                width: 150px;
+                text-align: center;
+                
+            }
+            input[type= number] {
+                width: 150px;
+            }
+            .clDiv1{
+                border: 1px solid;
+                height: 150px;
+                width: 200px;
+               
+            }
+            .clDiv2{
+                border: 1px solid;
+                height: 160px;
+                width: 200px;
+               
+            }
+        </style>
+    </head>
+    <body>
+
+        <!--
+            Crie um programa para armazenar informações meteorológicas.
+
+            1. Crie um vetor para armazenar 30 temperaturas.
+
+            2. Calcular a média das temperaturas.
+
+            3. O usuário pode informar um dia qualquer e o programa deve dizer se 
+                a temperatura desse dia estava acima ou abaixo da média.
+         -->
+        <section>
+            <form action="">
+                <div class="clDiv1">
+                    <div>
+                        <input type="number" name="nmTemperatura" id="idTemperatura" placeholder="Temperatura...">
+                    </div>
+                    <div>
+                        <input type="button" value="Enviar" onclick="enviarTemperatura()">
+                        <input type="button" value="Media" onclick="calcularMedia()">
+                    </div>
+                    <div  class="clOut1">
+                        <output id="idOutMedia"></output>
+                    </div>
+                </div>
+                <div class="clDiv2">
+                    <div>
+                        <input type="number" name="nmDiaInfo" id="idDiaInfo" placeholder="Informe um dia...">
+                    </div>
+                    <div>
+                        <input type="button" value="Verificar" onclick="verificarDia()">
+                    </div>
+                    <div class="clOut2">
+                        <output id="idOutDiaInfo"></output>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section>
+            <script>
+                var temperaturasEnviadas = []
+                var outMedia = document.getElementById("idOutMedia")
+                var outDiaInfo = document.getElementById("idOutDiaInfo")
+                function enviarTemperatura() {
+                    // capiturando as temperaturas
+
+                    let temperatura = Number(document.getElementById("idTemperatura").value)
+
+                    temperaturasEnviadas.push(temperatura)
+
+                    document.getElementById("idTemperatura").value = ""
+                }
+                var media = 0
+                function calcularMedia() {
+
+                    
+                    
+                    for (var i = 0; i < temperaturasEnviadas.length; i++) {                        
+                        media+= temperaturasEnviadas[i]
+                    }
+                    media = media / temperaturasEnviadas.length++
+                    outMedia.value = media
+
+                    console.table(temperaturasEnviadas)
+                }
+                function verificarDia() {
+                    let diaInformado = Number(document.getElementById("idDiaInfo").value)
+                    diaInformado--
+                    if (media > temperaturasEnviadas[diaInformado]) {
+                        outDiaInfo.value = "A temperatura desse dia é " + temperaturasEnviadas[diaInformado]
+                         + " e está abaixo da media"
+
+                    } else if (media < temperaturasEnviadas[diaInformado]) {
+                        outDiaInfo.value = "A temperatura desse dia é " + temperaturasEnviadas[diaInformado] 
+                        + " e está acima da media"
+
+                    } else if (media == temperaturasEnviadas[diaInformado]) {
+                        outDiaInfo.value = "A temperatura desse dia é " + temperaturasEnviadas[diaInformado] 
+                        + " e está igual a media"
+                    }
+
+                   
+                }
+                
+            </script>
+        </section>
+    </body>
+</html>

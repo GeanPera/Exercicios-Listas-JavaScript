@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <label for="idNota01"></label>
+        <input type="number" name="nmNota01" id="idNota01" minlength="0" maxlength="10">
+
+         <br><br>
+        <label for="idNota02"></label>
+        <input type="number" name="nmNota02" id="idNota02">
+
+        <br><br>
+        <label for="idNota03"></label>
+        <input type="number" name="nmNota03" id="idNota03">
+
+        <br><br>
+        <label for="idNota04"></label>
+        <input type="number" name="nmNota04" id="idNota04">
+
+        <br><br>
+        <input type="button" value="Calcular Media" onclick="calcularNota()">
+
+        <br><br><br>
+        <label for="idMedia"></label>
+        <input type="text" name="nmMedia" id="idMedia">
+
+        <script> 
+        function calcularNota() {
+            var nota01 = Number(document.getElementById("idNota01").value)
+            var nota02 = Number(document.getElementById("idNota02").value)
+            var nota03 = Number(document.getElementById("idNota03").value)
+            var nota04 = Number(document.getElementById("idNota04").value)
+
+            var media = (nota01 + nota02 + nota03 + nota04) / 4
+
+            document.getElementById("idMedia").value = media
+
+
+        }
+        </script>
+    </body>
+</html>

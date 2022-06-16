@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP5L6</title>
+    </head>
+    <body>
+        <script>
+            let num1 = 1
+            let num2 = 0
+            let num3 = 0
+
+            var teste = []
+            
+            for (var index = 0; index < 16; index++) {
+                teste.push(num1)
+                num3 = num1                 
+                num1 = num1 + num2
+                num2 = num3 
+                
+                console.log(teste[index])
+            }
+        </script>            
+    </body>
+</html>

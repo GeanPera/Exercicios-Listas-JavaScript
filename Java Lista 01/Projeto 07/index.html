@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <label for="idPreco">Preço:</label><br>
+        <input type="text" name="nmPreco" id="idPreco">
+
+        <br><br>
+        <label for="idCustoFixo">Custo fixo:</label><br>
+        <input type="text" name="nmCustoFixo" id="idCustoFixo">
+
+        <br><br>
+        <label for="idLucro">Lucro líquido:</label><br>
+        <input type="text" name="nmLucro" id="idLucro" value="35%" disabled>
+
+        <br><br>
+        <input type="button" value="Calcular" onclick="calcularPreco()">
+
+        <br><br>
+        <label for="idValorFinal">Valor final:</label><br>
+        <input type="text" name="nmValorFinal" id="idValorFinal">
+
+        <script>
+        function calcularPreco() {
+            var preco = Number(document.getElementById("idPreco").value)
+            var custo = Number(document.getElementById("idCustoFixo").value)
+            var precoFinal = preco + custo
+            var porcent = (35 / 100) * precoFinal
+
+            var valorFinal = precoFinal + porcent
+
+            document.getElementById("idValorFinal").value = valorFinal
+        }
+        </script>
+    </body>
+</html>

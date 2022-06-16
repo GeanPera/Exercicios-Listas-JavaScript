@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP1L1</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idNum">Numero:</label><br>
+            <input type="number" name="nmNum" id="idNum">
+
+            <br><br>
+            <input type="button" value="Verificar" onclick="verificarNum()">
+
+            <br><br>
+            <input type="number" name="nmResul" id="idResul">
+        </form>
+        <script>
+            function verificarNum() {
+
+                var num = Number(document.getElementById("idNum").value)
+                var resul = Number(document.getElementById("idResul").value)
+                if (num > 20) {
+                    resul = num / 2
+                    document.getElementById("idResul").value = resul
+                }
+                if (num <= 20) {
+                    resul = num
+                    document.getElementById("idResul").value = resul
+                }
+                
+            }
+        </script>
+
+    </body>
+</html>

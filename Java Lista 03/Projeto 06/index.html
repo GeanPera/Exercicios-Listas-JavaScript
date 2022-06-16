@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP6L3</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idNum1">1° Número</label><br>
+            <input type="number" name="nmNum1" id="idNum1">
+
+            <br><br>
+            <label for="idNum2">2° Número</label><br>
+            <input type="number" name="nmNum2" id="idNum2">
+
+            <br><br>
+            <label for="idEscolhaSinal">Escolha o operador aritmetico</label><br>
+
+            <br>
+            <input type="radio" name="nmSinal" id="idSoma">
+            <label for="idSoma">Adição</label>
+
+            <input type="radio" name="nmSinal" id="idSubtracao">
+            <label for="idSubtracao">Subtração</label>
+
+            <input type="radio" name="nmSinal" id="idMultiplicacao">
+            <label for="idMultiplicacao">Multiplicação</label>
+
+            <input type="radio" name="nmSinal" id="idDivisao">
+            <label for="idDivisao">Divisão</label>
+
+            <br><br>
+            <input type="button" value="Calcular" onclick="calcular()">
+
+            <br><br>
+            <input type="number" name="nmResultado" id="idResultado">
+        </form>
+        <script>
+                       
+            function calcular() {
+
+            let num1 = Number(document.getElementById("idNum1").value)
+            let num2 = Number(document.getElementById("idNum2").value)
+
+            let resultado = 1
+
+            let soma = document.getElementById("idSoma").checked
+            let sub = document.getElementById("idSubtracao").checked
+            let mult = document.getElementById("idMultiplicacao").checked
+            let div = document.getElementById("idDivisao").checked
+            
+            
+            if (soma = true) {
+                resultado = num1 + num2
+            } 
+            if (sub) {
+                resultado = num1 - num2
+            } 
+            if (mult) {
+                resultado = num1 * num2
+               }
+            if (div) {
+                resultado = num1 / num2                   
+            }
+            
+            document.getElementById("idResultado").value = resultado
+                
+            }
+        </script>
+    </body>
+</html>

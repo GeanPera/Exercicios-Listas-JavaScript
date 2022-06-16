@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP7L4</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+                <br><br>
+                <output id="idOut"></output>
+
+                <br><br>
+                <input type="button" value="Contar" onclick="contar()">
+                
+            </form>
+
+        </section>
+        <section>
+            <script>
+                
+    
+                function contar() {
+                    let contador = 6
+                    let soma = 0
+                    let out = document.getElementById("idOut")
+                    
+                    
+                    while ( contador < 101 ) {
+                        soma = soma + contador 
+                        contador = contador + 2
+                        
+                    }
+                    /*   usando PA ( primeiro termo + ultimo termo) * numero de termos / 2 */
+                    let resultado = ((6 + 100) * 48 / 2)
+                   
+                    out.value = "A soma de tudo é = " + soma 
+                }
+            </script>
+        </section>
+    </body>
+</html>

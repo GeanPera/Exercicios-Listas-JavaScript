@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>javaP6L5</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idIdade">Idade</label><br>
+            <input type="number" name="nmIdade" id="idIdade">
+
+            <br><br>
+            <input type="button" value="Enviar" onclick="enviarIdade()">
+
+            <input type="button" value="Verificar" onclick="verificar()">
+
+            <br><br>
+            <output id="idOutMedia"></output>
+            <br><br>
+            <output id="idOutMaior18"></output>
+            <br><br>
+            <output id="idOutMenor5"></output>
+            <br><br>
+            <output id="idOutmaiorIdade"></output>
+
+        </form>
+        <script>
+            var contMedia = 0
+            var idadeMedia = 0
+          
+            var maior18 = 0
+            var menor5 = 0
+            var maiorIdade = 0
+
+
+            function enviarIdade() {
+                let idade = Number(document.getElementById("idIdade").value)
+
+                if (idade > 18) {
+                    maior18++
+                }
+                if (idade < 5) {
+                    menor5++
+                }
+                if (idade > maiorIdade) {
+                    maiorIdade = idade
+                }
+                if (idade > 0) {
+                    contMedia++
+                    idadeMedia = idadeMedia + idade
+                }
+
+                document.getElementById("idIdade").value = ""
+
+                    
+                console.log(maior18)
+                console.log(menor5)
+                console.log(maiorIdade)
+                console.log(contMedia)
+                console.log(idadeMedia)
+                
+            }
+                
+            function verificar() {
+                idadeMedia = (idadeMedia / contMedia). toFixed(2)
+
+                document.getElementById("idOutMedia").value = "Idade media: " + idadeMedia + " anos "
+                document.getElementById("idOutMaior18").value =  "Quantidade de pessoas maiores de 18 anos : " + maior18
+                document.getElementById("idOutMenor5").value = "Quantidade de pessoas menores que 5 anos : " + menor5 
+                document.getElementById("idOutmaiorIdade").value = " A maior idade digitada é " + maiorIdade + " anos"
+            }
+            
+        </script>
+    </body>
+</html>

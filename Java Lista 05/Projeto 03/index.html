@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP3L5</title>
+    </head>
+    <body>
+        <form action="">
+            <br>
+            <input type="button" value="Sortear" onclick="sortear()">
+            <br><br>
+            <output id="idOutSorteio"></output>
+            <br><br>
+            <output id="idOutAcima"></output>
+            <br><br>
+            <output id="idOutDivisivel"></output>
+        </form>
+        <script>
+            function sortear() {
+                let cont = 0
+                let result = ""
+                let contAcima = 0
+                let contDivisivel = 0
+                while (cont < 20) {
+                    let num = parseInt(Math.random() * 10)
+                    num++
+                    result = result + num + ", "
+                    cont++
+                    if (num > 5) {
+                        contAcima++
+                    } 
+                    if ((num % 3) == 0) {
+                        contDivisivel++
+                    }
+                    
+                }
+                document.getElementById("idOutSorteio").value = result
+                document.getElementById("idOutAcima").value = "Acima de 5 tem " + contAcima
+                document.getElementById("idOutDivisivel").value = "Divisivel por 3 tem " + contDivisivel
+                
+            }
+        </script>
+    </body>
+</html>

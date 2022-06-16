@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP1L7</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idNota">Nota</label><br>
+            <input type="number" id="idNota">
+
+            <br><br>
+            <input type="button" value="Enviar" onclick="enviarNota()">
+
+            <br><br>
+            <input type="button" value="Relatorio" onclick="calcularRelatorio()">
+
+            <br><br>
+            <output id="idMedia"></output>
+            
+            <br><br>
+            <output id="idAlunosAcimaMedia"></output>
+            
+            <br><br>
+            <output id="idMaiorNota"></output>
+            
+            <br><br>
+            <output id="idPosicaoMaiorNota"></output>
+        </form>
+        <script>
+            var notasEnviadas = []
+            var outMedia = document.getElementById("idMedia")
+            var outAlunosAcimaMedia = document.getElementById("idAlunosAcimaMedia")
+            var outMaiorNota = document.getElementById("idMaiorNota")
+            var outPosicaoMaiorNota = document.getElementById("idPosicaoMaiorNota")
+            var media = 0
+
+            function enviarNota() {
+                let nota = Number(document.getElementById("idNota").value)
+
+                notasEnviadas.push(nota)
+
+                document.getElementById("idNota").value = ""
+            }
+            
+            function calcularRelatorio() {
+
+                
+                console.table(notasEnviadas)
+
+                //  Media da turma
+                for (var i = 0; i < notasEnviadas.length; i++) {
+
+                    media+= Number(notasEnviadas[i])
+                    
+                }
+                media = media / notasEnviadas.length
+                outMedia.value = "A média da turma é " + media.toFixed(2)
+
+                //  Alunos acima da média
+                let contAcimaMedia = 0
+
+                for (var i = 0; i < notasEnviadas.length; i++) {
+                    if (notasEnviadas[i] > media) {
+                        contAcimaMedia++
+                    }    
+                }
+                outAlunosAcimaMedia.value = "Qtd de alunos acima da média da turma é " + contAcimaMedia
+
+                //  Maior nota e a posição dela
+                let maiorNota = 00
+                let posicao
+
+                for (var i = 0; i < notasEnviadas.length; i++) {
+
+                    if (notasEnviadas[i] > maiorNota) {
+                        maiorNota = notasEnviadas[i]
+                        posicao = i
+                    }
+                }
+                outMaiorNota.value = "A maior nota é " + maiorNota
+                outPosicaoMaiorNota.value = "Posição da maior nota é " + posicao
+            }
+
+            
+        </script>
+    </body>
+</html>

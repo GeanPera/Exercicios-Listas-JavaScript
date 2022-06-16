@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>javaP10L6</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idChave">Chave</label><br>
+            <input type="number" id="idChave">           
+
+            <br><br>
+            <input type="button" value="Enviar" onclick="enviarChave()">
+           
+
+            <br><br>
+            <output id="idOutPosicoes"></output>
+
+            <br><br>
+            <output id="idOutQtd"></output>
+        </form>
+        <script>
+            var outPosicao = document.getElementById("idOutPosicoes")
+            var outQtd = document.getElementById("idOutQtd") 
+
+            var numSorteados = []
+
+            for (var i = 0; i < 30; i++) {
+               
+                let sortear = parseInt(Math.random() * 16)
+                numSorteados.push(sortear)
+            }
+            console.table(numSorteados)
+
+            function enviarChave() {
+                let numChaves = []
+                let numPosicao = []
+                let chave = document.getElementById("idChave").value
+
+                for (var i = 0; i < numSorteados.length; i++) {
+
+                    if (numSorteados[i] == chave) {
+                        numPosicao.push(i)
+
+                        numChaves.push(numSorteados[i])
+                    } 
+                }
+                outQtd.value = "A qtd de vezes que essa chave aparece é " + numChaves.length++
+                outPosicao.value = " As posições são " + numPosicao
+                console.table(numChaves)
+                console.log("essa chave fo sorteado " + (numChaves.length++) + " vezes")
+                console.log("essa chave esta nas posicoes " + numPosicao)
+               
+            }
+        </script>
+    </body>
+</html>

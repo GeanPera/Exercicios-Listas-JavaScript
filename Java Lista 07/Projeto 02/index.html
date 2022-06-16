@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP2L7</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idNome">Nome</label><br>
+            <input type="text" id="idNome" required>
+
+            <br><br>
+            <label for="idIdade">Idade</label><br>
+            <input type="number" id="idIdade" required>
+
+            <br><br>
+            <input type="button" value="Enviar" onclick="enviarNomeIdade()">
+            <br><br>
+            <input type="button" value="Verificar" onclick="verifarMenoresIdade()">
+
+            <br><br>
+            <output id="idOut"></output>
+        </form>
+        <script>
+            var nomeEnviado = []
+            var idadeEnviada = []
+            var nomeMenores = []
+            var idadeMenores = []
+
+            var out = document.getElementById("idOut")
+
+            function enviarNomeIdade() {
+                let lbNome = document.getElementById("idNome").value
+                let lbIdade = document.getElementById("idIdade").value
+
+                nomeEnviado.push(lbNome)
+                idadeEnviada.push(lbIdade)
+
+                document.getElementById("idNome").value = ""
+                document.getElementById("idIdade").value = ""
+
+            }
+
+            function verifarMenoresIdade() {
+                console.table(nomeEnviado)
+                console.table(idadeEnviada)
+
+                for (var i = 0; i < idadeEnviada.length; i++) {
+                    if (idadeEnviada[i] < 18) {
+                        nomeMenores.push(nomeEnviado[i])
+                        idadeMenores.push(idadeEnviada[i])
+                    }
+                    
+                    
+                }
+                
+                console.table(nomeMenores)
+                console.table(idadeMenores)
+                let result = ""
+                for (var i = 0; i < nomeMenores.length; i++) {
+                    result = result + "" + nomeMenores[i] + " - " + idadeMenores[i] + " anos " + ", "
+                    out.value = "Pessoas menores de idade: " + result
+                    
+                }
+
+            }
+           
+        </script>
+    </body>
+</html>

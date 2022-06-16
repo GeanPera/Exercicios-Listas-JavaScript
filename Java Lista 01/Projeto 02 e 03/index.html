@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idNum1"></label><br>
+            <input type="text" name="nmNum1" id="idNum1"> 
+
+            <br><br>
+            <label for="idNum2"></label><br>
+            <input type="text" name="nmNum2" id="idNum2"> 
+
+            <br><br>
+            <label for="idResultado">Resultado:</label>
+            <input type="text" name="nmResultado" id="idResultado">
+
+            <br><br>
+
+            <input type="button" value="Adição" onclick="adição()"> <br><br>
+            <input type="button" value="Subtração" onclick="subtração()"><br><br>
+            <input type="button" value="Multiplicação" onclick="multiplicação()"><br><br>
+            <input type="button" value="Divisão" onclick="divisão()"><br><br>
+        </form>
+        <script>
+            var num1
+            var num2   
+            var resultado
+                    
+            
+            function adição() {
+
+                num1 = document.getElementById("idNum1").value
+                num2 = document.getElementById("idNum2").value
+                
+                num1 = Number(num1)
+                console.log(typeof(num1))
+                num2 = Number(num2)
+                console.log(typeof(num2))               
+
+                resultado = num1 + num2
+
+                console.log("Numero: " + num1 + " Numero: " + num2 + " Resultado: " + resultado)
+                
+                document.getElementById("idResultado").value = resultado
+                 }
+
+            function subtração() {
+                num1 = document.getElementById("idNum1").value
+                num2 = document.getElementById("idNum2").value
+               
+                num1 = Number(num1)
+                console.log(typeof(num1))
+                num2 = Number(num2)
+                console.log(typeof(num2))               
+
+                resultado = num1 - num2
+
+                console.log("Numero: " + num1 + " Numero: " + num2 + " Resultado: " + resultado)
+                
+                document.getElementById("idResultado").value = resultado
+                
+            }
+
+            function multiplicação() {
+                num1 = document.getElementById("idNum1").value
+                num2 = document.getElementById("idNum2").value
+               
+                num1 = Number(num1)
+                console.log(typeof(num1))
+                num2 = Number(num2)
+                console.log(typeof(num2))               
+
+                resultado = num1 * num2
+
+                console.log("Numero: " + num1 + " Numero: " + num2 + " Resultado: " + resultado)
+                
+                document.getElementById("idResultado").value = resultado
+                
+            }
+
+            function divisão() {
+                num1 = document.getElementById("idNum1").value
+                num2 = document.getElementById("idNum2").value 
+                
+                num1 = Number(num1)
+                console.log(typeof(num1))
+                num2 = Number(num2)
+                console.log(typeof(num2))               
+
+                resultado = num1 / num2
+
+                console.log("Numero: " + num1 + " Numero: " + num2 + " Resultado: " + resultado)
+                
+                document.getElementById("idResultado").value = resultado
+                
+            }
+        </script>
+
+        
+    </body>
+</html>

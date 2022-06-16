@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP5L5</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idPreco">Preço</label>
+            <input type="number" name="nmPreco" id="idPreco">
+
+            <br><br>
+            <input type="button" value="Enviar" onclick="processar()">
+            <br><br>
+            <input type="button" value="Verificar" onclick="verificar()">
+
+            <br><br>
+            <output id="idOutMaior"></output>
+
+            <br><br>
+            <output id="idOutMenor"></output>
+        </form>
+        <script>
+           
+            var maior = 0
+            var menor = 99999999
+        
+            function processar() {
+                let preco = Number(document.getElementById("idPreco").value)
+
+                if (preco < menor) {
+                    menor = preco
+                }
+                if (preco > maior) {
+                    maior = preco
+                }
+                console.log("menor: " + menor);
+                console.log("maior: " + maior); 
+
+                document.getElementById("idPreco").value = ""
+            }
+               function verificar() {
+                   
+              
+                document.getElementById("idOutMaior").value = "maior preço: " + maior
+                document.getElementById("idOutMenor").value = "menor preço: " + menor
+            }
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP7L3</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idSalarioBruto">Salario Bruto</label><br>
+            <input type="text" id="idSalarioBruto" step="0.01">
+
+            <br><br>
+            <input type="button" value="Calcular" onclick="calcularSalario()" >
+
+            <br><br>
+            <label for="idSalarioLiquido">Salario Liquido</label><br>
+            <input type="text" id="idSalarioLiquido" disabled>
+
+        </form>
+        <script>
+        function calcularSalario() {
+            var bruto = Number(document.getElementById("idSalarioBruto").value)
+            var liquido = document.getElementById("idSalarioLiquido")
+            
+            
+            if (bruto <= 600) {
+
+                liquido.value = bruto
+
+            } else if (bruto > 600 && bruto <= 1200 ) {
+
+                let porcent = (25 / 100) * bruto
+                liquido.value = bruto - porcent
+
+            } else if (bruto > 1200 && bruto <= 2000 ) {
+
+                let porcent = (30 / 100) * bruto
+                liquido.value = bruto - porcent
+
+            } else if (bruto > 2000) {
+                
+                let porcent = (35 / 100) * bruto
+                liquido.value = bruto - porcent
+            }
+        }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Java P6L7</title>
+        
+        <style>
+            body{
+                margin: 20px;
+            }
+        
+            div{
+                margin: 15px;
+            }
+            .div1{
+                border: 1px solid;
+                width: 342px;
+            }
+            .div2{
+                border: 1px solid;
+                
+            }
+           
+            h1{
+                margin: 15px;
+                font-size: 20px;
+            }
+            input[type= button]{
+                margin-left: 30px;
+                margin-top: 5px;
+                margin-bottom: 15px;
+            }
+            output{
+
+            }
+        </style>
+    </head>
+    <body>
+        <form action="">
+            <div class="div1">
+                <div>
+                    <h1>Cadastro</h1>
+                    <div>
+                        <input type="text" id="idNomeAluno" placeholder="Nome do aluno...">
+                    </div>
+                    <div>
+                        <input type="text" id="idEndereco" placeholder="Endereço...">
+                    </div>
+                    <div>
+                        <input type="text" id="idNomeMae" placeholder="Nome da Mãe...">
+                    </div>
+                    <div>
+                        <input type="text" id="idNomePai" placeholder="Nome do pai...">
+                    </div>
+                    <div>
+                        <input type="text" id="idTelefone" placeholder="Telefone dos pais...">
+                    </div>
+                </div>
+                <div>
+                    <h1>Notas</h1>
+                    <div>
+                        <input type="number" id="idNota1" placeholder="Nota 1...">
+                    </div>
+                    <div>
+                        <input type="number" id="idNota2" placeholder="Nota 2...">
+                    </div>
+                    <div>
+                        <input type="number" id="idNota3" placeholder="Nota 3...">
+                    </div>
+                    <div>
+                        <input type="number" id="idNota4" placeholder="Nota 4...">
+                    </div>
+                </div>
+                <input type="button" value="Enviar" onclick="enviarDados()">
+                <input type="button" value="Relatório" onclick="relatorio()">
+            </div>
+            <div class="div2" id="idDivRelatorio" hidden>
+                <div>
+                    <h1>Relatório</h1>
+                </div>
+                <div>
+                    <output id="idOut"></output>
+                </div>
+            </div>
+        </form>
+        <script>
+            var nomesAlunos = []
+            var enderecosEnviados = []
+            var nomesMaes = []
+            var nomesPais = []
+            var telefonesEnviados = []
+            var notas1Enviadas = []
+            var notas2Enviadas = []
+            var notas3Enviadas = []
+            var notas4Enviadas = []
+
+            var out = document.getElementById("idOut")
+
+            function enviarDados() {
+                let aluno = document.getElementById("idNomeAluno").value
+                let endereco = document.getElementById("idEndereco").value
+                let mae = document.getElementById("idNomeMae").value
+                let pai = document.getElementById("idNomePai").value
+                let telefone = document.getElementById("idTelefone").value
+                let nota1 = document.getElementById("idNota1").value
+                let nota2 = document.getElementById("idNota2").value
+                let nota3 = document.getElementById("idNota3").value
+                let nota4 = document.getElementById("idNota4").value
+
+                nomesAlunos.push(aluno)
+                enderecosEnviados.push(endereco)
+                nomesMaes.push(mae)
+                nomesPais.push(pai)
+                telefonesEnviados.push(telefone)
+                notas1Enviadas.push(nota1)
+                notas2Enviadas.push(nota2)
+                notas3Enviadas.push(nota3)
+                notas4Enviadas.push(nota4)
+
+                document.getElementById("idNomeAluno").value = ""
+                document.getElementById("idEndereco").value = ""
+                document.getElementById("idNomeMae").value = ""
+                document.getElementById("idNomePai").value = ""
+                document.getElementById("idTelefone").value = ""
+                document.getElementById("idNota1").value = ""
+                document.getElementById("idNota2").value = ""
+                document.getElementById("idNota3").value = ""
+                document.getElementById("idNota4").value = ""
+            } 
+            var relatorioTotal = []
+            function relatorio() {
+                document.getElementById("idDivRelatorio").hidden = false
+                let contador = 1
+                for (var i = 0; i < nomesAlunos.length; i++) {
+                    relatorioTotal.push( " Aluno " + contador + ": " + nomesAlunos[i] + " Endereço: " + enderecosEnviados[i] 
+                    + " Nome da Mãe: " + nomesMaes[i] + " Nome do pai: " + nomesPais[i] 
+                    + " Telefone dos pais: " + telefonesEnviados[i] 
+                    + " Notas: " + notas1Enviadas[i] + ", " + notas2Enviadas[i] 
+                    + ", " + notas3Enviadas[i] + ", " + notas4Enviadas[i] + " " )
+                    contador++
+                }
+                out.value = relatorioTotal
+                console.table(nomesAlunos)
+                console.table(enderecosEnviados)
+                console.table(nomesMaes)
+                console.table(nomesPais)
+                console.table(telefonesEnviados)
+                console.table(notas1Enviadas)
+                console.table(notas2Enviadas)
+                console.table(notas3Enviadas)
+                console.table(notas4Enviadas)
+                console.table(relatorioTotal)
+            }
+            
+        </script>
+    </body>
+</html>

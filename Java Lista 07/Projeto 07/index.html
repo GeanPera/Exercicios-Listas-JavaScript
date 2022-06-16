@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+
+        <style>
+            h1{
+                font-size: 20px;
+            }
+            .jogadores{
+                
+                border: 1px solid;
+                width: 280px;
+                padding: 10px;
+                margin-right: 10px;
+            }
+            .pergunta{
+                padding: 10px;
+            }
+            input[type= button]{
+                margin-top: 10px;
+            }
+            #idCampoNumJogadores{
+                margin: 20px;
+                margin: 10px;
+            }
+            #idCampoPergunta{
+                border: 1px solid;
+                width: 300px;
+            }
+            #idCampoJogadores{
+                display: flex;
+                margin: 10px;
+            }
+            #idLinha1{
+                display: flex;
+                margin: 10px;
+            }
+            #idTabela{
+                margin: 10px;
+                width: 280px; 
+                border: 1px solid;
+                padding: 10px;
+            }
+            output{
+                font-size: 20px;
+                text-align: center;
+                display: block;
+                padding: 10px;
+            }
+            #idPlacar1{
+                padding: none;
+            }
+            #idPlacar2{
+                padding: none;
+            }
+            #idPlacar3{
+                padding: none;
+            }
+            #idPlacar4{
+                padding: none;
+            }
+            #idPergunta{
+                text-align: left;
+            }
+            .placar{
+                display: flex;
+            }
+            h4{
+                margin: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="idCampoNumJogadores">
+            <!-- Div para informar quantos jogadores vão jogar -->
+            <form action="">
+                <input type="button" value="Começar" id="idComecarJogo">
+            </form>
+        </div>
+        <div id="idLinha1">
+            <div id="idCampoPergunta" hidden>
+                <!-- Div para mostrar o estado -->
+                <div class="pergunta">
+                    <h1>Qual a capital desse estado?</h1>
+                    <output id="idPergunta"></output>
+                
+                    <input type="button" value="Perguntar" id="idFazerPergunta">
+                    <input type="button" value="Terminar" id="idTerminarJogo">
+                </div>
+            </div>
+        </div>
+            <div id="idTabelaClassificacao" hidden>
+                <h1>Classificação</h1>
+                <div class="placar placar1">
+                    <output id="idPlaca1" ></output>
+                </div>
+                <div class="placar placar2">
+                    <output id="idPlaca2" ></output>
+                </div>
+                <div class="placar placar3">
+                    <output id="idPlaca3" ></output>
+                </div>
+                <div class="placar placar4">
+                    <output id="idPlaca4" ></output>
+                </div>                
+            </div>
+        
+
+        <div id="idCampoJogadores">
+            <!-- Div onde os jogadores iram responder -->
+            <div class="jogadores" id="idCampo1" hidden>
+                <!-- Campo jogador 1 -->
+                <form action="">
+                    <h1>Jogador 1</h1>
+                    <input type="text" name="nmJogador1" id="idJogador1">
+                    <input type="button" value="Chutar" id="idBtJogador1">
+                    <output id="idOutJogador1"></output>
+                    <output id="idOutPontos1"></output>
+                </form>
+            </div>
+            <div class="jogadores" id="idCampo2" hidden>
+                <!-- Campo jogador 2 -->
+                <form action="">
+                    <h1>Jogador 2</h1>
+                    <input type="text" name="nmJogador2" id="idJogador2">
+                    <input type="button" value="Chutar" id="idBtJogador2">
+                    <output id="idOutJogador2"></output>
+                    <output id="idOutPontos2"></output>
+                </form>
+            </div>
+            <div class="jogadores" id="idCampo3" hidden>
+                <!-- Campo jogador 3 -->
+                <form action="">
+                    <h1>Jogador 3</h1>
+                    <input type="text" name="nmJogador3" id="idJogador3">
+                    <input type="button" value="Chutar" id="idBtJogador3">
+                    <output id="idOutJogador3"></output>
+                    <output id="idOutPontos3"></output>
+                </form>
+            </div>
+            <div class="jogadores" id="idCampo4" hidden>
+                <!-- Campo jogador 4 -->
+                <form action="">
+                    <h1>Jogador 4</h1>
+                    <input type="text" name="nmJogador4" id="idJogador4">
+                    <input type="button" value="Chutar" id="idBtJogador4">
+                    <output id="idOutJogador4"></output>
+                    <output id="idOutPontos4"></output>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            var btComeçar = document.getElementById("idComecarJogo")
+            var btPerguntar = document.getElementById("idFazerPergunta")
+            var btTerminar = document.getElementById("idTerminarJogo")
+            var btJogador1 = document.getElementById("idBtJogador1")
+            var btJogador2 = document.getElementById("idBtJogador2")
+            var btJogador3 = document.getElementById("idBtJogador3")
+            var btJogador4 = document.getElementById("idBtJogador4")
+
+            var estados = ["Acre", "Alagoas", "Amapá", "Amazonas", "Bahia",
+                           "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão",
+                           "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba",
+                           "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte",
+                           "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo",
+                            "Sergipe", "Tocantins"]
+            var capitais = ["Rio Branco", "Maceió", "Macapá", "Manaus", "Salvador",
+                            "Fortaleza", "Brasília", "Vitória", "Goiânia", "São Luís",
+                            "Cuiabá", "Campo Grande", "Belo Horizonte", "Belém", "João Pessoa",
+                            "Curitiba", "Recife", "Teresina", "Rio de Janeiro", "Natal",
+                            "Porto Alegre", "Porto Velho", "Boa Vista", "Florianópolis", "São Paulo",
+                            "Aracaju", "Palmas" ]
+
+            var outPergunta = document.getElementById("idPergunta")
+
+            var pontosJogador1 = 0
+            var pontosJogador2 = 0
+            var pontosJogador3 = 0
+            var pontosJogador4 = 0
+
+            var posicao1 = document.getElementById("idPlaca1")
+            var posicao2 = document.getElementById("idPlaca2")
+            var posicao3 = document.getElementById("idPlaca3")
+            var posicao4 = document.getElementById("idPlaca4")
+            var colocacao1
+            var colocacao2
+            var colocacao3
+            var colocacao4
+            var jogadorA = ""
+            var jogadorB = ""
+            var jogadorC = ""
+            var jogadorD = ""
+            
+            btComeçar.onclick = function () {
+                // function para mostra a qtd de jogadores escolida
+                let campoNumJogadores = document.getElementById("idCampoNumJogadores")
+                let campo1 = document.getElementById("idCampo1")
+                let campo2 = document.getElementById("idCampo2")
+                let campo3 = document.getElementById("idCampo3")
+                let campo4 = document.getElementById("idCampo4")
+                let campoPergunta = document.getElementById("idCampoPergunta")
+                campo1.hidden = false
+                campo2.hidden = false
+                campo3.hidden = false
+                campo4.hidden = false
+                campoNumJogadores.hidden = true
+                campoPergunta.hidden = false 
+                console.table(estados)
+                console.table(capitais)
+            }
+            btTerminar.onclick = function () {
+                jogadorA = ""
+                jogadorB = ""
+                jogadorC = ""
+                jogadorD = ""
+                let campoTabela = document.getElementById("idTabelaClassificacao")
+                campoTabela.hidden = false
+                let resultados = []
+                resultados.push(pontosJogador1)
+                resultados.push(pontosJogador2)
+                resultados.push(pontosJogador3)
+                resultados.push(pontosJogador4)
+                // Organizando os jogadores do maior para o menor
+                let isTrueOrFalse = true
+                    while (isTrueOrFalse) {
+                        isTrueOrFalse = false
+                        for (var i = 0; i < resultados.length; i++) {
+                            if (resultados[i] < resultados[i + 1]) {
+                                isTrueOrFalse = true
+                                let aux = resultados[i]
+                                resultados[i] = resultados[i + 1]
+                                resultados[i + 1] = aux
+                                console.log(resultados)
+                            }
+                        }
+                    }
+                // Mostrando cada jogador em sua posição
+                if (resultados[0] == pontosJogador1) {
+                        jogadorA = jogadorA + "Jogador1; "
+                }               
+                if (resultados[0] == pontosJogador2) {                       
+                        jogadorA = jogadorA + "Jogador2; "
+                }
+                if (resultados[0] == pontosJogador3) {                        
+                        jogadorA = jogadorA + "Jogador3; "
+                }
+                if (resultados[0] == pontosJogador4) {                        
+                        jogadorA = jogadorA + "Jogador4; "
+                }
+                // ------------------------------------------
+                if (resultados[1] == pontosJogador1) {
+                        jogadorB = jogadorB + "Jogador1; "
+                }               
+                if (resultados[1] == pontosJogador2) {                       
+                        jogadorB = jogadorB + "Jogador2; "
+                }
+                if (resultados[1] == pontosJogador3) {                        
+                        jogadorB = jogadorB + "Jogador3; "
+                }
+                if (resultados[1] == pontosJogador4) {                        
+                        jogadorB = jogadorB + "Jogador4; "
+                }
+                // ------------------------------------------
+                if (resultados[2] == pontosJogador1) {
+                        jogadorC = jogadorC + "Jogador1; "
+                }               
+                if (resultados[2] == pontosJogador2) {                       
+                        jogadorC = jogadorC + "Jogador2; "
+                }
+                if (resultados[2] == pontosJogador3) {                        
+                        jogadorC = jogadorC + "Jogador3; "
+                }
+                if (resultados[2] == pontosJogador4) {                        
+                        jogadorC = jogadorC + "Jogador4; "
+                }
+                // ------------------------------------------
+                if (resultados[3] == pontosJogador1) {
+                        jogadorD = jogadorD + "Jogador1; "
+                }               
+                if (resultados[3] == pontosJogador2) {                       
+                        jogadorD = jogadorD + "Jogador2; "
+                }
+                if (resultados[3] == pontosJogador3) {                        
+                        jogadorD = jogadorD + "Jogador3; "
+                }
+                if (resultados[3] == pontosJogador4) {                        
+                        jogadorD = jogadorD + "Jogador4; "
+                }
+                
+                if (resultados[0] == resultados[1] && resultados[0] == resultados[2] && resultados[0] == resultados[3]) {
+                    posicao1.value = " 1° - " + jogadorA
+                    posicao2.hidden = true
+                    posicao3.hidden = true
+                    posicao4.hidden = true
+                }
+                if (resultados[0] == resultados[1] && resultados[0] == resultados[2] && resultados[0] != resultados[3]) {
+                    posicao1.value = " 1° - " + jogadorA
+                    posicao2.value = " 2° - " + jogadorB
+                    posicao3.hidden = true
+                    posicao4.hidden = true
+                }
+                if (resultados[0] == resultados[1] && resultados[0] != resultados[2] && resultados[0] != resultados[3]) {           
+                    posicao1.value = " 1° - " + jogadorA
+                    posicao2.value = " 2° - " + jogadorB
+                    posicao3.value = " 3° - " + jogadorC
+                    posicao4.hidden = true
+                }
+                if (resultados[0] != resultados[1] && resultados[0] != resultados[2] && resultados[0] != resultados[3]) {           
+                    posicao1.value = " 1° - " + jogadorA
+                    posicao2.value = " 2° - " + jogadorB
+                    posicao3.value = " 3° - " + jogadorC
+                    posicao4.value = " 4° - " + jogadorD
+                }
+            }
+            let sorteio 
+            btPerguntar.onclick = function () {
+                // Function para sortear o numero e mostrar o estado
+                sorteio = parseInt(Math.random() * 27)
+                console.log(sorteio)
+                outPergunta.value = estados[sorteio]
+                
+                jogador1 = document.getElementById("idJogador1").value = ""
+                jogador2 = document.getElementById("idJogador2").value = ""
+                jogador3 = document.getElementById("idJogador3").value = ""
+                jogador4 = document.getElementById("idJogador4").value = ""
+
+                document.getElementById("idOutJogador1").value = ""
+                document.getElementById("idOutJogador2").value = ""
+                document.getElementById("idOutJogador3").value = ""
+                document.getElementById("idOutJogador4").value = ""
+
+                document.getElementById("idJogador1").disabled = false
+                document.getElementById("idBtJogador1").disabled = false
+
+                document.getElementById("idJogador2").disabled = false
+                document.getElementById("idBtJogador2").disabled = false
+
+                document.getElementById("idJogador3").disabled = false
+                document.getElementById("idBtJogador3").disabled = false
+
+                document.getElementById("idJogador4").disabled = false
+                document.getElementById("idBtJogador4").disabled = false
+
+            }
+            // Capturando e dizendo se está correto ou errado do jogador1
+            btJogador1.onclick = function () {
+                document.getElementById("idJogador1").disabled = true
+                document.getElementById("idBtJogador1").disabled = true
+
+                let jogador1 = document.getElementById("idJogador1").value
+                if (jogador1 == capitais[sorteio]) {
+
+                    document.getElementById("idOutJogador1").value = "Correto!"
+                    pontosJogador1++
+
+                } else {
+                    document.getElementById("idOutJogador1").value = "Errado!"
+                }
+                document.getElementById("idOutPontos1").value = "Pontos: " + pontosJogador1
+            }
+            // Capturando e dizendo se está correto ou errado do jogador2
+            btJogador2.onclick = function () {
+                document.getElementById("idJogador2").disabled = true
+                document.getElementById("idBtJogador2").disabled = true
+
+                let jogador2 = document.getElementById("idJogador2").value
+                if (jogador2 == capitais[sorteio]) {
+                    document.getElementById("idOutJogador2").value = "Correto!"
+                    pontosJogador2++
+
+                } else {
+                    document.getElementById("idOutJogador2").value = "Errado!"
+                }
+                document.getElementById("idOutPontos2").value = "Pontos: " + pontosJogador2
+            }
+            // Capturando e dizendo se está correto ou errado do jogador3
+            btJogador3.onclick = function () {
+                document.getElementById("idJogador3").disabled = true
+                document.getElementById("idBtJogador3").disabled = true
+
+                let jogador3 = document.getElementById("idJogador3").value
+                if (jogador3 == capitais[sorteio]) {
+                    document.getElementById("idOutJogador3").value = "Correto!"
+                    pontosJogador3++
+                    
+                } else {
+                    document.getElementById("idOutJogador3").value = "Errado!"
+                }
+                document.getElementById("idOutPontos3").value = "Pontos: " + pontosJogador3
+            }
+            // Capturando e dizendo se está correto ou errado do jogador4
+            btJogador4.onclick = function () {
+                document.getElementById("idJogador4").disabled = true
+                document.getElementById("idBtJogador4").disabled = true
+
+                let jogador4 = document.getElementById("idJogador4").value
+                if (jogador4 == capitais[sorteio]) {
+                    document.getElementById("idOutJogador4").value = "Correto!"
+                    pontosJogador4++
+                    
+                } else {
+                    document.getElementById("idOutJogador4").value = "Errado!"
+                }
+                document.getElementById("idOutPontos4").value = "Pontos: " + pontosJogador4
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP7L2</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+                <div>
+                    <label for="idCapital">Qual a capital do Brasil?</label><br>
+                    <input type="text" name="nmCapital" id="idCapital">
+
+                    <br><br>
+                    <output id="idOut"></output>
+
+                    <br><br>
+                    <input type="button" value="Enviar" onclick="verificarCapital()">
+                </div>
+            </form>
+        </section>
+        <section>
+            <script>
+                function verificarCapital() {
+                    var capital = document.getElementById("idCapital").value
+
+                    if (capital == "Brasília" || capital == "brasília") {
+                        document.getElementById("idOut").value = "Correto"
+                    } else {
+                        document.getElementById("idOut").value = "Errado"
+                    }
+                }
+            </script>
+        </section>
+    </body>
+</html>

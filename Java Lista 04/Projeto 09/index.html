@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP9L4</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+
+                <label for="idPrimeiroValor">Primeiro Valor</label><br>
+                <input type="number" name="nmPrimeiroValor" id="idPrimeiroValor">
+
+                <br><br>
+                <label for="idUltimoValor">Ultimo Valor</label><br>
+                <input type="number" name="nmUltimoValor" id="idUltimoValor">
+
+                <br><br>
+                <label for="idIncremento">Incremento</label><br>
+                <input type="number" name="nmIncremento" id="idIncremento">
+
+                <br><br>
+                <output id="idOut"></output>
+
+                <br><br>
+                <input type="button" value="Contar" onclick="contar()">
+                
+            </form>
+
+        </section>
+        <section>
+            <script>
+     
+                function contar() {
+                    let primeiro = Number(document.getElementById("idPrimeiroValor").value)
+                    let ultimo = Number(document.getElementById("idUltimoValor").value)
+                    let incremento = Number(document.getElementById("idIncremento").value)
+                    let resultado = ""
+                    let out = document.getElementById("idOut")
+                    
+                    if (primeiro < ultimo) {
+                        ultimo++
+                        while ( primeiro < ultimo ) {
+
+                            resultado = resultado + primeiro + ", "
+                            primeiro = primeiro + incremento
+                        } 
+                    } else {
+                        ultimo--
+                        while ( primeiro > ultimo ) {
+
+                            resultado = resultado + primeiro + ", "
+                            primeiro = primeiro - incremento
+                        }
+                    }
+                    
+                    out.value = resultado 
+                }
+            </script>
+        </section>
+    </body>
+</html>

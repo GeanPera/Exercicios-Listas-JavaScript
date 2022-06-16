@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP9L2</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+                <div>
+                    <label for="idAnoNasc">Em qual ano você nasceu?</label><br>
+                    <input type="text" name="nmAnoNasc" id="idAnoNasc">
+    
+                    <br><br>
+                    <input type="button" value="Enviar" onclick="verificarAno()">
+            
+                    <br><br>
+                    <output id="idOut"></output>
+                </div>
+            </form>
+        </section>
+        <section>
+            <script>
+                function verificarAno() {
+                    var ano = Number(document.getElementById("idAnoNasc").value)
+                    var anoAlistamento = ano + 18
+                    var quantoPassou = anoAlistamento - 2022
+                    
+                    if ( anoAlistamento < 2022) {
+                        document.getElementById("idOut").value = "Faz " + (quantoPassou * -1) + " anos que você se alistou para o Exército Brasileiro."
+                    } else {
+                        document.getElementById("idOut").value = "Faltam " + quantoPassou + " anos para você se alistar para o Exército Brasileiro."
+                    }
+                }
+            </script>
+        </section>
+        
+
+    </body>
+</html>

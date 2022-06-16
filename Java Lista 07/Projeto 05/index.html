@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Java P5L7</title>
+        <style>
+            body {
+                margin: 20px;
+            }
+            input{
+                margin: 10px;
+            }
+            output{
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="">
+            <div>
+                <input type="number"  id="idNumDigitado" placeholder="Digite um número....">
+            </div>
+            <div>
+                <input type="radio" name="nmEscolhaOrdem" id="idOrdemCrescente">
+                <label for="idOrdemCrescenteLb">Ordem Crescente</label>
+            </div>
+            <div>
+                <input type="radio" name="nmEscolhaOrdem" id="idOrdemDecrescente">
+                <label for="idOrdemDecrescenteLb">Ordem Decrescente</label>
+            </div>
+            <div>
+                <input type="button" value="Enviar" id="idEnviar">
+                <input type="button" value="Ordernar" id="idOrdenarNumeros">
+            </div>
+            <div>
+                <output id="idOut"></output>
+            </div>
+        </form>
+        <script>
+            var numerosEnviados = []
+            var out = document.getElementById("idOut")
+            var numDigitado = document.getElementById("idNumDigitado")
+
+            let btEnviar = document.getElementById("idEnviar")
+            let btOrdenar = document.getElementById("idOrdenarNumeros") 
+
+            btEnviar.onclick = function () {
+                numerosEnviados.push(Number(numDigitado.value))
+                document.getElementById("idNumDigitado").value = ""
+                console.log(numerosEnviados)
+            }
+
+            btOrdenar.onclick = function () {
+                var crescente = document.getElementById("idOrdemCrescente").checked
+                var decrescente = document.getElementById("idOrdemDecrescente").checked
+                let isTrueOrFalse = true
+                if (crescente == true) {
+                    while (isTrueOrFalse) {
+                        isTrueOrFalse = false
+
+                        for (var i = 0; i < numerosEnviados.length; i++) {
+
+                            if (numerosEnviados[i] > numerosEnviados[i + 1]) {
+
+                                isTrueOrFalse = true
+                                let aux = numerosEnviados[i]
+                                numerosEnviados[i] = numerosEnviados[i + 1]
+                                numerosEnviados[i + 1] = aux
+                                console.log(numerosEnviados)
+                            }
+                        }
+                    }
+                    out.value = numerosEnviados
+                    console.log(numerosEnviados)
+                    isTrueOrFalse = true
+                } else if (decrescente == true) { 
+                    while (isTrueOrFalse) {
+                        isTrueOrFalse = false
+
+                        for (var i = 0; i < numerosEnviados.length; i++) {
+
+                            if (numerosEnviados[i] < numerosEnviados[i + 1]) {
+
+                                isTrueOrFalse = true
+                                let aux = numerosEnviados[i]
+                                numerosEnviados[i] = numerosEnviados[i + 1]
+                                numerosEnviados[i + 1] = aux
+                            }
+                        }
+                    } 
+                    out.value = numerosEnviados
+                    console.log(numerosEnviados)
+                }
+                    
+                
+                
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP8L5</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idTempC">Temperatura em °C</label><br>
+            <input type="number" name="nmTempC" id="idTempC">
+            <br><br>
+            <input type="button" value="Converter" onclick="converterC()">
+            <br><br>
+            <output id="idOut"></output>
+        </form>
+        <script>
+            
+        
+            function converterC() {
+                
+                let tempC = Number(document.getElementById("idTempC").value)
+                let tempF = tempC * 9 / 5 + 32
+
+                document.getElementById("idOut").value = tempF
+            }
+            
+            
+        </script>
+    </body>
+</html>

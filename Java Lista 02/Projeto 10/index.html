@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP10L2</title>
+    </head>
+    <body>
+        <label for="idLadoA">Lado A</label><br>
+        <input type="number" name="nmLadoA" id="idLadoA">
+
+        <br><br>
+        <label for="idLadoB">Lado B</label><br>
+        <input type="number" name="nmLadoB" id="idLadoB">
+
+        <br><br>
+        <label for="idLadoC">Lado C</label><br>
+        <input type="number" name="nmLadoC" id="idLadoC">
+
+        <br><br>
+        <output id="idOut"></output>
+
+        <br><br>
+        <input type="button" value="verificar" onclick="verificarTriangulo()">
+
+        <script>
+            function verificarTriangulo() {
+                var ladoA = parseFloat(document.getElementById("idLadoA").value)
+                var ladoB = parseFloat(document.getElementById("idLadoB").value)
+                var ladoC = parseFloat(document.getElementById("idLadoC").value)
+
+                var isTriangulo = true
+
+                if ((ladoA + ladoB) < ladoC) {
+                    isTriangulo = false
+                }
+                if ((ladoC + ladoB) < ladoA) {
+                    isTriangulo = false
+                }
+                if ((ladoA + ladoC) < ladoB) {
+                    isTriangulo = false
+                }
+                if (isTriangulo) {
+                    document.getElementById("idOut").value = "É possivel formar um triangulo"
+                } else {
+                    document.getElementById("idOut").value = "Não é possivel formar um triangulo"
+                }
+            }
+        </script>
+    </body>
+</html>

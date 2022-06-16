@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP1L5</title>
+    </head>
+    <body>
+        <form action=""></form>
+            <br>
+            <input type="button" value="Multiplos de 3" onclick="multiplos3()">
+            <br><br>
+            <input type="button" value="Multiplos de 5" onclick="multiplos5()">
+            <br><br>
+
+            <output id="idOut"></output>
+
+
+        </form>
+        <script>
+            function multiplos3() {
+                let num = 1
+                let result = ""
+                while (num < 100) {
+                    result = result + num + ", "
+                    num++
+
+                    if ((result % 3) == 0 && (result % 5) == 0) {
+                        document.getElementById("idOut").value = "Os multiplos de 3 e 5 são: " + result
+                    }
+                }
+                
+            }
+            
+            
+        </script>
+    </body>
+</html>

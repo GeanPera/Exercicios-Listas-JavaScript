@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="idPrimeiro">Primeiro numero</label><br>
+        <input type="number" name="nmPrimeiro" id="idPrimeiro">
+        <br><br>
+        <label for="idUltimo">Ultimo numero</label><br>
+        <input type="number" name="nmUltimo" id="idUltimo">
+        <br><br>
+        <input type="radio" name="nmParidade" id="idPar" checked>
+        <label for="idPar">Par</label>
+        <input type="radio" name="nmParidade" id="idImpar">
+        <label for="idImpar">Impar</label>
+        <br><br>
+        <input type="button" value="Gerar numeros" onclick="contarWhile()"><br>
+        <output id="idOutWhile"></output><br>
+        <output id="idOutPar"></output><br>
+        <output id="idOutImpar"></output><br>
+
+        
+    </form>
+
+    <Script>
+
+        function contarWhile() {
+            let primeiro = Number(document.querySelector("#idPrimeiro").value)   
+            let ultimo = Number(document.querySelector("#idUltimo").value) 
+            let numPar = document.getElementById("idPar").checked
+            //let numImpar = document.getElementById("idImar").checked
+            let numerosPares = ""
+            let numerosImpares = ""
+            let cont = primeiro
+            let contPar = 0
+            let contImpar = 0
+
+           // num % 2 == 0 Par 
+           ultimo++
+            while (cont < ultimo) {
+                if ((cont % 2) == 0 ) {
+                    numerosPares = numerosPares + cont + " "
+                    contPar++ 
+                }else{
+                    numerosImpares = numerosImpares + cont + " "
+                    contImpar++
+                }
+                cont++
+            }
+
+            if (numPar) {
+                document.getElementById("idOutWhile").value = "Numeros Pares: " + numerosPares
+            }else{
+                document.getElementById("idOutWhile").value = "Numeros Impares: " + numerosImpares
+            }
+            document.getElementById("idOutPar").value = "Quantidade Par: " + contPar
+            document.getElementById("idOutImpar").value = "Quantidade Impar: " + contImpar
+        }
+
+       
+
+    </Script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaP10L3</title>
+    </head>
+    <body> 
+        <section>
+            <fieldset>
+                <legend>Login</legend>
+                    <form action="">                   
+                        <label for="idUser">Usuário</label><br>
+                        <input type="text" name="nmUser" id="idUser">
+                                      
+                        <br><br>
+                        <label for="idSenha">Senha</label><br>
+                        <input type="password" name="nmSenha" id="idSenha"> 
+
+                        <br><br>
+                        <output id="idOut"></output>
+                                    
+                        <br><br>
+                        <input type="button" value="Entrar" onclick="fazerLogin()">
+
+                    </form>
+            </fieldset>
+        </section>
+        <section>
+            <script>                
+                var user1 = "E21Aluno1"
+                var user2 = "E21Aluno2"
+                var user3 = "E21Aluno3"
+
+                var senha1 = "Trocar123"
+                var senha2 = "Senha@123"
+                var senha3 = "123Trocar"
+
+                var contador = 0
+
+                function fazerLogin() {
+                    let user = document.getElementById("idUser").value
+                    let senha = document.getElementById("idSenha").value
+                    let out = document.getElementById("idOut")
+
+                    if (contador < 3) {
+                          if ((user != user1)
+                          &&  (user != user2)
+                          &&  (user != user3)) {
+                              out.value = "Usuário Não Cadastrado"
+                          }
+          
+                          if (((user == user1) && (senha != senha1))
+                          || ((user == user2) && (senha != senha2))
+                          || ((user == user3) && (senha != senha3))) {
+                              out.value = "Senha Incorreta"
+                          }
+          
+                          if (((user == user1) && (senha == senha1)) 
+                          || ((user == user2) && (senha == senha2))
+                          || ((user == user3) && (senha == senha3))) {
+                              out.value = "Acesso Permitido"
+                          }
+                    } else {
+                        out.value = "Usuário Bloqueado"
+                    }
+                    contador++ 
+                }
+                
+            </script>
+        </section>
+    </body>
+</html>

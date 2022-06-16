@@ -1,0 +1,36 @@
+
+
+--- Analise do exercicio 7 da lista 5 ---
+    Em um jogo de adivinhação, o jogador deve descobrir um número entre 1 e 10 usando até três tentativas.
+    A cada tentativa o jogador é informado se o número foi descoberto, ou se ele é maior ou menor do que
+    a tentativa. Se após três tentativas o jogador não descobrir o número, então ele perde o jogo. 
+    Crie um algoritmo que implemente esse jogo.
+
+-- Versão 0 --
+    - Problemas -
+        Só mostra que o jogo acabou após a 4 tentativas erradas
+        O jogador pode continuar a jogar após ter acertado o número
+
+-- Versão 1 --
+    - Problemas -
+        O jogador pode continuar a jogar após ter acertado o número
+
+    - Melhoras -
+        Mostra que o jogo acabou após 3 tentativas erradas
+
+-- Versão 2 --
+    - Problemas -
+        O jogador pode continuar a jogar após ter acertado o número
+
+-- Versão 3 --
+    - Melhoras -
+        Bloqueia o campo de digitação e o botão após 3 vezes erradas ou se o jogador acerta
+
+-- Versão 4 --
+    - Melhoras -
+        Informa que o número não está entre 1 e 10 
+        O cursor de digitação começa no espaço de digitação
+
+-- Versão 5 --
+    - Melhoras -
+        Tem o botão de iniciar o jogo e após acertar ou perder o jogo o botão aparece para reiniciar o jogo

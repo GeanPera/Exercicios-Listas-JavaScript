@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP5L4</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+                <label for="idNum">Numero</label><br>
+                <input type="number" name="nmNum" id="idNum">
+
+                <br><br>
+
+                <input type="button" value="Conta" onclick="contar()">
+                
+                <br><br>
+                <output id="idOut"></output>
+            </form>
+        </section>
+        <section>
+            <script>
+                function contar() {
+                    let num = document.getElementById("idNum").value
+                    let out = document.getElementById("idOut")
+                    let contador = 0
+                    let contadorNum = ""
+                        num++
+                    while (contador < num) {
+                        contadorNum = contadorNum + contador + ", "
+                        contador++
+                    }
+                    out.value = contadorNum
+                }
+            </script>
+        </section>
+    </body>
+</html>

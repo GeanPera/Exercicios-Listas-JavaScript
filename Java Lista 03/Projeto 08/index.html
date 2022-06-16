@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaP8L3</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idValorProduto">Valor do Produto</label><br>
+            <input type="text" name="nmValorProduto" id="idValorProduto">
+
+            <br><br>
+            <input type="button" value="Calcular" onclick="calcularValor()">
+
+            <br><br>
+            <label for="idValorFinal">Valor Final</label><br>
+            <input type="text" name="nmValorFinal" id="idValorFinal">
+        </form>
+        <script>
+            function calcularValor() {               
+                let vProduto = Number(document.getElementById("idValorProduto").value)
+                let vFinal = Number(document.getElementById("idValorFinal").value)
+
+                if (vProduto < 20) {
+                    let porcent = ( 50 / 100 ) * vProduto
+                    document.getElementById("idValorFinal").value = vProduto + porcent
+                } else {
+                    let porcent = ( 35 / 100 ) * vProduto
+                    document.getElementById("idValorFinal").value = vProduto + porcent
+                }
+            }
+        </script>
+    </body>
+</html>

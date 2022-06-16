@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idNum1"></label><br>
+            <input type="text" name="nmNum1" id="idNum1"> 
+    
+            <br><br>
+            <label for="idNum2"></label><br>
+            <input type="text" name="nmNum2" id="idNum2">
+
+             <br><br>
+            <input type="button" value="Executar" onclick="adição()">
+        </form>
+        <script>
+            function adição() {
+                
+                num1 = document.getElementById("idNum1").value
+                document.getElementById("idNum2").value = num1   
+            }
+            
+        </script>
+    </body>
+</html>

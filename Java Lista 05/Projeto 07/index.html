@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP7L5</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idNum">Qual o seu numero</label><br>
+            <input type="number" name="nmNum" id="idNum">
+
+            <br><br>
+           
+            <input type="button" id="idBotao" value="Adivinhar" onclick="adivinhar()">
+
+            <br><br>
+            <output id="idOut"></output>
+        </form>
+        <script>
+           
+            var numSorteio = parseInt(Math.random() * 10)
+            numSorteio++
+            
+            var cont = 0
+            
+            var out = document.getElementById("idOut")
+            
+            
+            function adivinhar() {
+                let numTentativa = document.getElementById("idNum").value
+                let btTentativa = document.getElementById("idBotao")
+               
+
+                if (numTentativa == numSorteio) {
+                    out.value = "Parabéns, Você acertou!"
+                    document.getElementById("idNum").disabled = true
+                }
+                if (numTentativa > numSorteio) {
+                    out.value = "Errado! O numero sorteado é menor que " + numTentativa
+                    cont++
+                } 
+                if (numTentativa < numSorteio) { 
+                    out.value = "Errado! O numero sorteado é maior que " + numTentativa
+                    cont++
+                }
+                if (cont == 3) {
+                    document.getElementById("idNum").disabled = true
+                    document.getElementById("idBotao").disabled = true
+                   
+                   out.value = ""
+
+                   window.alert("Você errou as 3 tentativas, mais sorte na proxima vez")
+                }
+                
+                console.log("Sorteio = " + numSorteio + " Sua tentativa = " + numTentativa)
+            }
+        </script>
+    </body>
+</html>

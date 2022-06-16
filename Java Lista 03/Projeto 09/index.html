@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP9L3</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+                <div>
+                    <label for="idCabecalho">Quer calcular a area de qual forma geometrica</label>
+
+                    <br><br>
+                    <input type="radio" name="nmForma" id="idCirculo">
+                    <label for="idCirculo">Círculo</label>
+
+                    <br><br>
+                    <input type="radio" name="nmForma" id="idRetangulo">
+                    <label for="idRetangulo">Retângulo</label>
+
+                    <br><br>
+                    <input type="radio" name="nmForma" id="idTrianguloRetangulo">
+                    <label for="idTrianguloRetangulo">Triangulo Retângulo</label>
+
+                    <br><br>
+                    <input type="radio" name="nmForma" id="idTrianguloEquilatero">
+                    <label for="idTrianguloEquilatero">Triangulo Equilátero</label>
+                </div>
+                <div>
+                    <br><br>
+                    <input type="button" value="Escolher Forma" onclick="escolhaOpcao()">
+                    <input type="button" value="Calcular" onclick="calcularArea()">
+  
+                    <br><br>
+
+                    <label for="idNum1" id="idLabel1" hidden>Raio</label><br>
+                    <input type="number" id="idNum1" hidden>
+
+                    <br><br>
+                    <label for="idNum2" id="idLabel2" hidden>Altura</label><br>
+                    <input type="number" id="idNum2" hidden>
+  
+                    <br><br>
+                    <output id="idOut"></output>
+                </div>
+            </form>
+        </section>
+        <section>
+            <script>
+                
+                function calcularArea() {
+
+                const circulo = document.getElementById("idCirculo").checked
+                const retangulo = document.getElementById("idRetangulo").checked
+                const triRetangulo = document.getElementById("idTrianguloRetangulo").checked
+                const equilatero = document.getElementById("idTrianguloEquilatero").checked
+
+                const lbNum1 = Number(document.getElementById("idNum1").value)
+                const lbNum2 = Number(document.getElementById("idNum2").value)
+ 
+                let out = document.getElementById("idOut")
+                let area
+
+                    if (circulo) {
+
+                        area =  lbNum1 * lbNum1 * Math.PI
+                    }
+                    if (retangulo) {
+
+                        area = lbNum1 * lbNum2
+
+                    } 
+                    if (triRetangulo) {
+
+                        area = (lbNum1 * lbNum2) / 2
+
+                    } 
+                    if (equilatero) {
+
+                        area = ((lbNum1 * lbNum1) * (3 **(1/2)))/4
+                        //area = lado ao quadrado * raiz de 3 / 4
+                    } 
+                    
+                    console.log(out)
+                    out.value = area. toFixed(2)
+                }
+                function escolhaOpcao() {
+                    const circulo = document.getElementById("idCirculo").checked
+                    const retangulo = document.getElementById("idRetangulo").checked
+                    const triRetangulo = document.getElementById("idTrianguloRetangulo").checked
+                    const equilatero = document.getElementById("idTrianguloEquilatero").checked
+
+                    let out = document.getElementById("idOut")
+                    
+                    if (circulo) {
+                        document.getElementById("idLabel1").hidden = false
+                        document.getElementById("idNum1").hidden = false
+
+                        document.getElementById("idLabel2").hidden = true
+                        document.getElementById("idNum2").hidden = true
+
+                        document.getElementById("idLabel1").innerText = "Raio"
+
+                        out.value = ""
+                        document.getElementById("idNum1").value = ""
+                        document.getElementById("idNum2").value = ""
+                        
+                    } else if (retangulo) {
+                        document.getElementById("idLabel1").hidden = false
+                        document.getElementById("idNum1").hidden = false
+                        
+                        document.getElementById("idLabel2").hidden = false
+                        document.getElementById("idNum2").hidden = false
+
+                        document.getElementById("idLabel1").innerText = "Base"
+                        document.getElementById("idLabel2").innerText = "Altura"
+
+                        out.value = ""
+                        document.getElementById("idNum1").value = ""
+                        document.getElementById("idNum2").value = ""
+                        
+                    } else if (triRetangulo) {
+                        document.getElementById("idLabel1").hidden = false
+                        document.getElementById("idNum1").hidden = false
+                        
+                        document.getElementById("idLabel2").hidden = false
+                        document.getElementById("idNum2").hidden = false
+
+                        document.getElementById("idLabel1").innerText = "Base"
+                        document.getElementById("idLabel2").innerText = "Altura"
+
+                        out.value = ""
+                        document.getElementById("idNum1").value = ""
+                        document.getElementById("idNum2").value = ""
+
+                    } else if (equilatero) {
+                        document.getElementById("idLabel1").hidden = false
+                        document.getElementById("idNum1").hidden = false
+
+                        document.getElementById("idLabel2").hidden = true
+                        document.getElementById("idNum2").hidden = true
+
+                        document.getElementById("idLabel1").innerText = "Lado"
+
+                        out.value = ""
+                        document.getElementById("idNum1").value = ""
+                        document.getElementById("idNum2").value = ""
+
+                    }
+                }
+            </script>
+        </section>
+
+    </body>
+</html>

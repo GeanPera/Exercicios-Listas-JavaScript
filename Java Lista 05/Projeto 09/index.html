@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP9L5</title>
+        <style>
+            div{
+                margin: 10px;
+            }
+            output{
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="">
+            <p>Qual unidade você quer converter?</p>
+            <!-- Escolha da Unidade -->
+            <div>  
+                <input type="radio" name="nmDe" id="idCelsius1">
+                <label for="idCelsius1">Graus Celsius</label>
+            </div>
+            <div>
+                <input type="radio" name="nmDe" id="idFahrenheit1">
+                <label for="idFahrenheit1">Graus Fahrenheit</label>
+            </div>
+            <div>
+                <input type="radio" name="nmDe" id="idkelvin1">
+                <label for="idkelvin1">kelvin</label>
+            </div>
+            <!-- Campo para digitar o valor para ser convertido --> 
+            <div>
+                <input type="number" id="idTempLabel" placeholder="Temperatura...">
+            </div>
+            <div>
+                <input type="button" value="Converter" onclick="converter()" >
+            </div>
+            <div id="idDivOut">
+                <output id="idOut1"></output>           
+                <output id="idOut2"></output>
+            </div>
+        </form>
+        <script>           
+            function converter() {
+                // Captura dos dados
+                let tempLabel = Number(document.getElementById("idTempLabel").value)            
+                let celsius1 = document.getElementById("idCelsius1").checked
+                let fahrenheit1 = document.getElementById("idFahrenheit1").checked
+                let kelvin1 = document.getElementById("idkelvin1").checked
+                let out1 = document.getElementById("idOut1")               
+                let out2 = document.getElementById("idOut2")       
+                let tempFinal1
+                let tempFinal2
+
+                if (celsius1 == true) {
+                    // Converção de celcius para as outras duas
+                    tempFinal1 = "Em fahrenheit: " + (( tempLabel * 9/5) + 32).toFixed(2)
+                    tempFinal2 = "Em kelvin: " + (tempLabel + 273.15).toFixed(2)
+                }
+                else if (fahrenheit1 == true) {
+                    // Converção de fahrenheit para as outras duas
+                    tempFinal1 = "Em celsius: " + (( tempLabel - 32 ) * 5 / 9).toFixed(2)
+                    tempFinal2 = "Em kelvin: " + (( tempLabel - 32) * 5 / 9 + 273.15).toFixed(2)
+                }
+                else if (kelvin1 == true) {
+                    // Converção de kelvin para as outras duas
+                    tempFinal1 = "Em celsius: " + (tempLabel - 273.15).toFixed(2)
+                    tempFinal2 = "Em fahrenheit: " + (( tempLabel - 273.15) * 9 / 5 + 32).toFixed(2)
+                }
+               // Saída dos dados
+                out1.value = tempFinal1
+                out2.value = tempFinal2
+            }
+    
+        </script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP3L2</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idDia01">Qual a temperetura de 3 dias atrás?</label><br>
+            <input type="text" name="nmDia01" id="idDia01">
+
+            <br><br>
+            <label for="idDia02">Qual a temperatura de anteontem?</label><br>
+            <input type="text" name="nmDia02" id="idDia02">
+
+            <br><br>
+            <label for="idDia03">Qual a temperatura de ontem?</label><br>
+            <input type="text" name="nmDia03" id="idDia03">
+
+            <br><br>
+            <label for="idHoje">Qual a temperatura de hoje?</label><br>
+            <input type="text" name="nmHoje" id="idHoje">
+
+            <br><br>
+            <input type="button" value="Verificar" onclick="verificarTemp()">
+
+            <br><br>
+            <p id="idResul"></p>
+        </form>
+        <script>
+            function verificarTemp() {
+                var dia01 = Number(document.getElementById("idDia01").value)
+                var dia02 = Number(document.getElementById("idDia02").value)
+                var dia03 = Number(document.getElementById("idDia03").value)
+                var hoje = Number(document.getElementById("idHoje").value)
+
+                var media = (dia01 + dia02 + dia03) / 3
+
+                if ( hoje < media) {
+                    document.getElementById("idResul").innerText = "A temperatura de hoje está abaixo da média de temperatura dos ultimos 3 dias"
+                }
+                if ( hoje > media) {
+                    document.getElementById("idResul").innerText = "A temperatura de hoje está acima da média de temperatura dos ultimos 3 dias"
+                }
+                if ( hoje == media){
+                    document.getElementById("idResul").innerText = "A temperatura de hoje está igual a média de temperatura dos ultimos 3 dias"
+                }
+            }
+        </script>
+    </body>
+</html>

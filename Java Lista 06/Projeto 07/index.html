@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JavaP7L6</title>
+    </head>
+    <body>
+        <section>
+            <form action="">
+                <label for="idNome">Nome</label><br>
+                <input type="text" id="idNome">
+
+                <br><br>
+                <input type="button" value="Enviar" onclick="enviarNomes()">
+                
+
+                <br><br>
+                <output id="idOut"></output>
+            </form>
+        </section>
+        <section>
+            <script>
+
+                var out = document.getElementById("idOut")
+                var vetorNomes = []
+                var cont = 0
+
+                function enviarNomes() {
+                    cont++
+                    let nome = document.getElementById("idNome").value
+                    let nomeEnviados = " " + nome
+ 
+                    vetorNomes.unshift(nomeEnviados)
+
+                    document.getElementById("idNome").value = ""
+                    
+                    if (cont == 7) {
+                        console.log(vetorNomes)
+                    out.value = vetorNomes
+                    }
+                }
+
+            </script>
+        </section>
+
+    </body>
+</html>
